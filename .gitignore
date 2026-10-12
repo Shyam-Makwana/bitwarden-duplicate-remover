@@ -1,0 +1,9 @@
+# Never commit password exports. Only the fake files in sample/ are allowed.
+*.json
+*.csv
+!package.json
+!sample/*.json
+!sample/*.csv
+
+.DS_Store
+node_modules/

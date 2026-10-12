@@ -1,0 +1,26 @@
+{
+  "name": "bitwarden-duplicate-remover",
+  "version": "1.0.0",
+  "description": "Remove and merge duplicate passwords in Bitwarden and Chrome. Runs offline in your browser.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "update-psl": "node tools/update-psl.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "bitwarden",
+    "duplicate",
+    "duplicates",
+    "remove duplicates",
+    "merge",
+    "password manager",
+    "chrome passwords",
+    "dedupe",
+    "vault",
+    "offline"
+  ]
+}

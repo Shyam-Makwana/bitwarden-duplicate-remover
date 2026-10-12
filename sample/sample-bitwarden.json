@@ -1,0 +1,550 @@
+{
+  "encrypted": false,
+  "folders": [
+    {
+      "id": "f-work",
+      "name": "Work"
+    }
+  ],
+  "items": [
+    {
+      "id": "sample-1",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "TikTok",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.tiktok.com/login"
+          }
+        ],
+        "username": "sam.rivera@example.test",
+        "password": "Tk!sample-1",
+        "totp": "JBSWY3DPEHPK3PXP",
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2026-02-11T10:00:00.000Z",
+      "creationDate": "2026-02-11T10:00:00.000Z"
+    },
+    {
+      "id": "sample-2",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "tiktok.com",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://tiktok.com"
+          }
+        ],
+        "username": "sam.rivera@example.test",
+        "password": "Tk!sample-1",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2025-03-02T10:00:00.000Z",
+      "creationDate": "2025-03-02T10:00:00.000Z"
+    },
+    {
+      "id": "sample-3",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "TikTok Careers",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://careers.tiktok.com"
+          }
+        ],
+        "username": "sam.rivera@example.test",
+        "password": "Careers#77",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2025-09-20T10:00:00.000Z",
+      "creationDate": "2025-09-20T10:00:00.000Z"
+    },
+    {
+      "id": "sample-4",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "GitHub",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://github.com/login"
+          }
+        ],
+        "username": "samr",
+        "password": "gh-current-2026",
+        "totp": null,
+        "fido2Credentials": [
+          {
+            "credentialId": "pk-4",
+            "rpId": "github.com"
+          }
+        ]
+      },
+      "passwordHistory": [
+        {
+          "lastUsedDate": "2025-01-10T10:00:00.000Z",
+          "password": "gh-old-2024"
+        }
+      ],
+      "collectionIds": null,
+      "revisionDate": "2026-05-03T10:00:00.000Z",
+      "creationDate": "2026-05-03T10:00:00.000Z"
+    },
+    {
+      "id": "sample-5",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "github.com",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://github.com"
+          }
+        ],
+        "username": "samr",
+        "password": "gh-old-2024",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2026-06-01T10:00:00.000Z",
+      "creationDate": "2026-06-01T10:00:00.000Z"
+    },
+    {
+      "id": "sample-6",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "My blog (GitHub Pages)",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://samr.github.io"
+          }
+        ],
+        "username": "samr",
+        "password": "gh-current-2026",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2025-04-01T10:00:00.000Z",
+      "creationDate": "2025-04-01T10:00:00.000Z"
+    },
+    {
+      "id": "sample-7",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Netflix",
+      "notes": null,
+      "favorite": true,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.netflix.com/login"
+          }
+        ],
+        "username": "sam.rivera@example.test",
+        "password": "Nf-2026-new",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2026-07-14T10:00:00.000Z",
+      "creationDate": "2026-07-14T10:00:00.000Z"
+    },
+    {
+      "id": "sample-8",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "netflix",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://netflix.com"
+          }
+        ],
+        "username": "Sam.Rivera@example.test",
+        "password": "Nf-2023-old",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2023-11-30T10:00:00.000Z",
+      "creationDate": "2023-11-30T10:00:00.000Z"
+    },
+    {
+      "id": "sample-9",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Amazon",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.amazon.com/ap/signin"
+          }
+        ],
+        "username": "sam.rivera@example.test",
+        "password": "Amz-sample-9",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2025-12-01T10:00:00.000Z",
+      "creationDate": "2025-12-01T10:00:00.000Z"
+    },
+    {
+      "id": "sample-10",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Amazon UK",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.amazon.co.uk"
+          }
+        ],
+        "username": "sam.rivera@example.test",
+        "password": "Amz-sample-9",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2025-12-02T10:00:00.000Z",
+      "creationDate": "2025-12-02T10:00:00.000Z"
+    },
+    {
+      "id": "sample-11",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Google",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://accounts.google.com"
+          }
+        ],
+        "username": "sam.rivera@example.test",
+        "password": "G00gle-sample",
+        "totp": "GEZDGNBVGY3TQOJQ",
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2026-01-05T10:00:00.000Z",
+      "creationDate": "2026-01-05T10:00:00.000Z"
+    },
+    {
+      "id": "sample-12",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Google (old 2FA)",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://accounts.google.com"
+          }
+        ],
+        "username": "sam.rivera@example.test",
+        "password": "G00gle-sample",
+        "totp": "MFRGGZDFMZTWQ2LK",
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2024-02-05T10:00:00.000Z",
+      "creationDate": "2024-02-05T10:00:00.000Z"
+    },
+    {
+      "id": "sample-13",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Home router",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "http://192.168.1.1"
+          }
+        ],
+        "username": "admin",
+        "password": "router-home",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2024-08-08T10:00:00.000Z",
+      "creationDate": "2024-08-08T10:00:00.000Z"
+    },
+    {
+      "id": "sample-14",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Office router",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "http://192.168.1.1"
+          }
+        ],
+        "username": "admin",
+        "password": "router-office",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2025-08-08T10:00:00.000Z",
+      "creationDate": "2025-08-08T10:00:00.000Z"
+    },
+    {
+      "id": "sample-15",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Jira",
+      "notes": "Recovery codes stored in the safe",
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://acme-sample.atlassian.net"
+          }
+        ],
+        "username": "sam.rivera@example.test",
+        "password": "Jira-sample-1",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2025-10-10T10:00:00.000Z",
+      "creationDate": "2025-10-10T10:00:00.000Z"
+    },
+    {
+      "id": "sample-16",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Spotify",
+      "notes": null,
+      "favorite": false,
+      "fields": [
+        {
+          "name": "Security question",
+          "value": "Blue",
+          "type": 0
+        }
+      ],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://accounts.spotify.com"
+          }
+        ],
+        "username": "samr-music",
+        "password": "Sp0tify!",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2025-05-05T10:00:00.000Z",
+      "creationDate": "2025-05-05T10:00:00.000Z"
+    },
+    {
+      "id": "sample-17",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Reddit",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.reddit.com"
+          }
+        ],
+        "username": "samr_posts",
+        "password": "Rd-sample",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2025-02-02T10:00:00.000Z",
+      "creationDate": "2025-02-02T10:00:00.000Z"
+    },
+    {
+      "id": "sample-18",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Bank of Example",
+      "notes": null,
+      "favorite": false,
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://online.bankofexample.test"
+          }
+        ],
+        "username": "srivera",
+        "password": "Bank-sample-$",
+        "totp": null,
+        "fido2Credentials": []
+      },
+      "passwordHistory": null,
+      "collectionIds": null,
+      "revisionDate": "2026-03-03T10:00:00.000Z",
+      "creationDate": "2026-03-03T10:00:00.000Z"
+    },
+    {
+      "id": "sample-card",
+      "organizationId": null,
+      "folderId": null,
+      "type": 3,
+      "reprompt": 0,
+      "name": "Sample Visa",
+      "notes": null,
+      "favorite": false,
+      "card": {
+        "cardholderName": "Sam Rivera",
+        "brand": "Visa",
+        "number": "4111111111111111",
+        "expMonth": "12",
+        "expYear": "2030",
+        "code": "123"
+      },
+      "collectionIds": null,
+      "revisionDate": "2025-01-01T10:00:00.000Z",
+      "creationDate": "2025-01-01T10:00:00.000Z"
+    },
+    {
+      "id": "sample-note",
+      "organizationId": null,
+      "folderId": null,
+      "type": 2,
+      "reprompt": 0,
+      "name": "Wi-Fi notes",
+      "notes": "Guest network: sample",
+      "favorite": false,
+      "secureNote": {
+        "type": 0
+      },
+      "collectionIds": null,
+      "revisionDate": "2025-01-01T10:00:00.000Z",
+      "creationDate": "2025-01-01T10:00:00.000Z"
+    }
+  ]
+}

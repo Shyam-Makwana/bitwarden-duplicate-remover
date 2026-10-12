@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- The browser itself blocks every network request from this page: no fetch, no beacons, no external files. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bitwarden Duplicate Remover: merge duplicate passwords from Bitwarden and Chrome</title>
+<meta name="description" content="Remove and merge duplicate passwords in Bitwarden. Combines your Bitwarden export with Chrome passwords, shows what gets removed and why, and gives you a clean file to import. Runs offline in your browser.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <h1>Bitwarden Duplicate Remover</h1>
+  <p class="offline" title="A Content-Security-Policy in this page blocks all network access, so nothing you load can leave your computer.">Offline: this page can't make network requests</p>
+  <button type="button" id="startOver" class="ghost" hidden>Start over</button>
+</header>
+
+<main>
+  <section id="intake" class="intake">
+    <div id="dropzone" class="dropzone">
+      <p class="drop-title">Drop your Bitwarden and Chrome exports here</p>
+      <p class="drop-sub">Files are read inside this tab and never leave your computer.</p>
+      <button type="button" id="chooseFiles" class="primary">Choose files</button>
+      <input type="file" id="fileInput" accept=".json,.csv" multiple hidden>
+    </div>
+    <ol class="steps">
+      <li>In Bitwarden, open Tools, then Export vault, and pick the <strong>.json</strong> format, not the encrypted one. Export a second copy as <strong>.json (Encrypted)</strong> and keep it as your backup.</li>
+      <li>In Chrome, open <strong>chrome://password-manager/settings</strong> and choose Export passwords.</li>
+      <li>Drop both files above. Nothing changes until you download the new vault.</li>
+    </ol>
+  </section>
+
+  <section id="files" class="files" hidden>
+    <ul id="fileList"></ul>
+    <button type="button" id="addFile" class="link">Add another file</button>
+  </section>
+
+  <section id="ledger" class="ledger" hidden>
+    <div class="equation" aria-label="Entries in minus duplicates removed equals entries out">
+      <div class="term"><span class="fig" id="figIn">0</span><span class="cap">entries in your files</span></div>
+      <span class="op" aria-hidden="true">−</span>
+      <div class="term term-removed"><span class="fig" id="figRemoved">0</span><span class="cap">duplicates removed</span></div>
+      <span class="op" aria-hidden="true">=</span>
+      <div class="term term-out"><span class="fig" id="figOut">0</span><span class="cap">entries in the new vault</span></div>
+    </div>
+    <p id="ledgerNote" class="ledger-note"></p>
+    <div class="ledger-actions">
+      <label class="setting">
+        <input type="checkbox" id="mergeDifferent" checked>
+        <span>Merge entries with an older password on the same site<small>Only when it's clear which password is current. The older ones go into that entry's password history in Bitwarden.</small></span>
+      </label>
+      <button type="button" id="exportOpen" class="primary">Download new vault</button>
+    </div>
+  </section>
+
+  <section id="workspace" class="workspace" hidden>
+    <nav class="tabs" role="tablist">
+      <button type="button" role="tab" data-tab="removed"></button>
+      <button type="button" role="tab" data-tab="separate"></button>
+      <button type="button" role="tab" data-tab="asis"></button>
+      <button type="button" role="tab" data-tab="vault"></button>
+      <button type="button" role="tab" data-tab="rules"></button>
+    </nav>
+    <div class="toolbar">
+      <div id="searchBar" class="search"><input type="search" id="search" placeholder="Search by website, username or name" aria-label="Search"></div>
+      <div id="kindFilter" class="kinds">
+        <button type="button" data-kind="all">All <span class="n"></span></button>
+        <button type="button" data-kind="exact">Exact duplicates <span class="n"></span></button>
+        <button type="button" data-kind="older">Older passwords <span class="n"></span></button>
+      </div>
+      <div id="catFilter" class="kinds"></div>
+    </div>
+    <div id="view"></div>
+    <section id="rules" class="rules" hidden>
+      <dl>
+        <dt>Same account</dt>
+        <dd>Two entries belong to one account when they have the same website and the same username. Capital letters in usernames are ignored. Passwords must match exactly.</dd>
+        <dt>Same website</dt>
+        <dd>Subdomains count as one website: www.tiktok.com, tiktok.com and careers.tiktok.com are all tiktok.com. A login saved without a web address uses its name when the name is a domain (and gets it as its web address), or joins an entry with the identical name, username and password. Hosting platforms are not lumped together, so foo.github.io and bar.github.io stay different. This uses the Public Suffix List bundled with this page.</dd>
+        <dt>Exact duplicates</dt>
+        <dd>Same website, username and password. One entry is kept, preferring Bitwarden over Chrome, then the most recently updated. It receives every web address, note, custom field, 2FA code and passkey from the copies.</dd>
+        <dt>Older passwords</dt>
+        <dd>Same username on the same host (www. ignored) but a different password. The current password is chosen in this order: a password that another copy lists as old loses; a password set on a real date wins over passwords that already existed before that date; otherwise the password that Chrome and a dated Bitwarden entry both have wins. An import stamps every item with the import time (shown as "Imported"), so that date only proves the password existed by then. If none of this settles it, nothing is guessed and both entries are kept. The other passwords are saved in the kept entry's password history, so you can still find them in Bitwarden.</dd>
+        <dt>Never merged</dt>
+        <dd>Different 2FA codes, more than one passkey, different subdomains with different passwords, local network addresses such as 192.168.1.1, entries without a username that have different passwords, the same password on different websites, and cases where the current password can't be told apart. These are listed under Kept separately.</dd>
+        <dt>Copied as they are</dt>
+        <dd>Cards, identities, secure notes, SSH keys, organization items, items in the trash and logins without a website. They can't be matched safely, so they go into the new vault unchanged. They're listed under Copied as is.</dd>
+        <dt>Password codes</dt>
+        <dd>The coloured dot and four-letter code are a fingerprint of the password. Same colour and code means same password. Use Show to see the password itself.</dd>
+      </dl>
+    </section>
+  </section>
+</main>
+
+<dialog id="exportDialog" class="dialog">
+  <h2>Download the new vault</h2>
+  <ul id="exportSummary" class="summary"></ul>
+  <p>Your original files aren't changed. Import the new file into your test Bitwarden account first: Tools, then Import data, format "Bitwarden (json)".</p>
+  <div class="dialog-actions">
+    <button type="button" id="exportVault" class="primary">Download new vault (.json)</button>
+    <button type="button" id="exportReport" class="ghost">Download change list (.csv, no passwords)</button>
+    <button type="button" id="exportCancel" class="link">Cancel</button>
+  </div>
+</dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="src/psl-data.js"></script>
+<script src="src/site.js"></script>
+<script src="src/parse.js"></script>
+<script src="src/dedupe.js"></script>
+<script src="src/render.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>
